@@ -30,14 +30,14 @@ describe('Cadastro Simples de Usuário', () => {
   // Buscar usuário e verificar se ele está cadastrado
   it('Buscar usuário por ID', () => {
     cy.request({
-      method: 'GET',
-      url: `/usuarios/${userID}`,
+      //method: 'GET',
+      //url: `/usuarios/${userID}`,
       headers: {
         'Accept': 'application/json'
       }
     }).should((response) => {
       expect(response.status).to.eq(200);
-      //expect(response.body).to.have.property('nome', nome);
+      expect(response.body).to.have.property('nome', nome);
       expect(response.body).to.have.property('email', email);
       expect(response.body).to.have.property('administrador');
       expect(response.body).to.have.property('_id');
